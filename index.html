@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>TrainXplor</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
 
@@ -11,6 +11,7 @@
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #f4f6f8;
+      color: #222;
     }
 
     header {
@@ -22,7 +23,7 @@
       align-items: center;
     }
 
-     h1 {
+    h1 {
       font-family: 'Montserrat', sans-serif;
       font-weight: 900;
       font-size: 2.5rem;
@@ -54,6 +55,8 @@
 
     main {
       padding: 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
     }
 
     .content {
@@ -62,6 +65,233 @@
       border-radius: 8px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
+
+    .hero {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .hero-text {
+      flex: 1 1 520px;
+      min-width: 260px;
+    }
+
+    .hero-text h2 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.75rem;
+    }
+
+    .hero-text p {
+      margin: 0 0 0.75rem 0;
+      color: #555;
+      line-height: 1.45;
+    }
+
+    .hero-text ul {
+      margin: 0.25rem 0 1rem 1.25rem;
+      color: #444;
+    }
+
+    .hero-text li {
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-image {
+      width: 260px;
+      height: 260px;
+      border-radius: 12px;
+      overflow: hidden;
+      flex: 0 0 260px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #eee;
+    }
+
+    .hero-image.circular {
+      border-radius: 50%;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .video-wrapper {
+      margin-top: 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .video-card {
+      background: #fafafa;
+      border-radius: 8px;
+      padding: 1rem;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+
+    .video-card h3 {
+      margin: 0 0 0.5rem 0;
+      font-size: 1rem;
+    }
+
+    video {
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+      background: #000;
+      display: block;
+    }
+
+    footer {
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid #e6e9ee;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    footer a {
+      color: #459bfd;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    .dept-section {
+      margin-top: 1rem;
+    }
+
+    .dept-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+      margin: 1rem 0 0.5rem 0;
+      overflow-x: auto;
+      padding-bottom: 0.25rem;
+    }
+
+    .dept-button {
+      display: inline-block;
+      padding: 0.75rem 1.25rem;
+      background: linear-gradient(180deg,#0b06f0e1,#0a4ef0);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: 700;
+      box-shadow: 0 6px 14px rgba(10,78,240,0.18);
+      transition: transform 0.12s ease, box-shadow 0.12s ease, opacity 0.12s ease;
+      white-space: nowrap;
+      border: none;
+      cursor: pointer;
+    }
+
+    .dept-button:focus {
+      outline: 3px solid rgba(69,155,253,0.25);
+      outline-offset: 2px;
+    }
+
+    .dept-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(10,78,240,0.22);
+      opacity: 0.98;
+    }
+
+    .dept-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .dept-card {
+      padding: 1rem;
+      border-radius: 8px;
+      background: #fbfdff;
+      border: 1px solid #eef6ff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    }
+
+    @media (max-width: 900px) {
+      .hero-text {
+        flex: 1 1 360px;
+      }
+      .hero-image {
+        width: 200px;
+        height: 200px;
+        flex: 0 0 200px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero {
+        align-items: flex-start;
+      }
+
+      .hero {
+        flex-direction: column;
+      }
+      .hero-image {
+        width: 100%;
+        height: 220px;
+        flex: 0 0 auto;
+        border-radius: 8px;
+        margin-top: 1rem;
+      }
+    }
+        .course-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1em;
+  border: 2px solid #333;
+}
+
+.course-table th,
+.course-table td {
+  border: 1px solid #333; 
+  padding: 0.75em;
+  text-align: left;
+}
+
+.course-table th {
+  background-color: #f4f4f4;
+}
+.resource-links a {
+  font-size: 1.25rem;
+  font-weight: 600;
+  padding: 10px 16px;
+  background-color: #0078d4; 
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  display: inline-block;
+  margin: 8px 0;
+}
+
+.resource-links a:hover {
+  background-color: #005a9e;
+}
+
+.resource-links {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.resource-links li {
+  margin: 8px 0;
+}
+
+    
   </style>
 </head>
 <body>
@@ -69,34 +299,198 @@
     <h1>TrainXplor</h1>
     <nav>
       <ul id="menu">
-        <li class="active" onclick="showContent('Home')">Home</li>
-        <li onclick="showContent('Training Catalog')">Training Catalog</li>
-        <li onclick="showContent('My Learning')">My Learning</li>
-        <li onclick="showContent('Resources')">Resources</li>
-        <li onclick="showContent('Login')">Login</li>
+        <li class="active" onclick="showContent(event, 'Home')">Home</li>
+        <li onclick="showContent(event, 'Training Catalog')">Training Catalog</li>
+        <li onclick="showContent(event, 'My Learning')">My Learning</li>
+        <li onclick="showContent(event, 'Resources')">Resources</li>
+        <li onclick="showContent(event, 'Login')">Login</li>
       </ul>
     </nav>
   </header>
 
   <main>
     <div class="content" id="pageContent">
-      <h2>Welcome to TrainXplor</h2>
-      <p>This is your centralized hub for training, learning, and development within the company.</p>
+      <div class="hero">
+        <div class="hero-text">
+          <h2>Welcome to TrainXplor</h2>
+
+          <p>
+            TrainXplor is a centralized learning hub designed to help you master the processes in your current role and explore workflows across other departments. The site combines structured learning paths with practical, on-the-job practice so you can build confidence and competence quickly.
+          </p>
+
+          <p>What you will find:</p>
+          <ul>
+            <li>Training videos that demonstrate step-by-step processes and real-world scenarios.</li>
+            <li>Interactive quizzes to check understanding and reinforce key concepts.</li>
+            <li>Supporting documents such as checklists, SOPs, and quick-reference guides for day-to-day use.</li>
+            <li>Hands-on practice modules and simulations that let you apply skills in a safe environment.</li>
+          </ul>
+
+          <p>
+            By combining multimedia instruction with assessment and practice, TrainXplor prepares you to perform confidently in your current role and gives you the tools to cross-train into other teams.
+          </p>
+        </div>
+
+        <div class="hero-image circular" aria-hidden="false">
+          <img src="HPimage.webp" alt="TrainXplor preview image" loading="lazy">
+        </div>
+      </div>
+
+      <div class="video-wrapper">
+        <div class="video-card">
+          <h3>Video Loop of Website</h3>
+          <video id="siteVideo" controls loop preload="metadata" poster="assets/video-poster.jpg">
+            <source src="assets/loop.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <footer>
+        <a href="#" onclick="showContent(event, 'Training Catalog')">Training Catalog</a>
+        <a href="#" onclick="showContent(event, 'My Learning')">My Learning</a>
+        <a href="#" onclick="showContent(event, 'Resources')">Resources</a>
+        <a href="#" onclick="showContent(event, 'Login')">Login</a>
+      </footer>
     </div>
   </main>
 
-  <script>
-    function showContent(tabName) {
-      const content = document.getElementById('pageContent');
-      content.innerHTML = `
-        <h2>${tabName} – TrainXplor</h2>
-        <p>This is the ${tabName} section. Content will be added here.</p>
-      `;
+<script>
+  function showContent(evt, tabName) {
+    const content = document.getElementById('pageContent');
 
-      const menuItems = document.querySelectorAll('#menu li');
-      menuItems.forEach(item => item.classList.remove('active'));
-      event.target.classList.add('active');
-    }
-  </script>
+    if (tabName === 'Training Catalog') {
+      content.innerHTML = `
+        <div class="content">
+          <h2>Training Catalog</h2>
+          <p>A unified, searchable catalog organizes short courses, videos, standard operating procedures, and hands-on exercises by department—including Engineering, Manufacturing, Quality Assurance, and Digital Innovations Technology. This enables employees to efficiently locate training resources tailored to their roles, such as safety and compliance checklists and practical laboratories. Each listing provides transparent learning objectives and estimated completion times, allowing users to select brief refreshers or pursue a structured pathway for skill development and cross-training.</p>
+
+          <div class="dept-section" aria-label="Department navigation">
+            <div class="dept-buttons" role="navigation" aria-label="Departments">
+              <a href="#" class="dept-button" aria-disabled="true">Engineering</a>
+              <a href="#" class="dept-button" aria-disabled="true">Manufacturing</a>
+              <a href="#" class="dept-button" aria-disabled="true">Quality Assurance</a>
+              <a href="#" class="dept-button" aria-disabled="true">Digital Innovations Technology</a>
+            </div>
+          </div>
+        </div>
+      `;
+    } else if (tabName === 'My Learning') {
+      content.innerHTML = `
+        <div class="content">
+          <h2>My Learning</h2>
+          <p>Welcome to your personalized learning dashboard. Here you will find a curated list of course links designed for quick access and exploration—tailored to your learning history, recommended resources, and the courses you are currently engaged in.</p>
+
+          <table class="course-table" role="table" aria-label="List of Course Links">
+            <thead>
+              <tr>
+                <th scope="col">List of Course Links</th>
+                <th scope="col">List of Course Links</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><a href="#" aria-disabled="true">Course A</a></td>
+                <td><a href="#" aria-disabled="true">Course B</a></td>
+              </tr>
+              <tr>
+                <td><a href="#" aria-disabled="true">Course C</a></td>
+                <td><a href="#" aria-disabled="true">Course D</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      `;
+    } else if (tabName === 'Resources') {
+      content.innerHTML = `
+        <div class="content">
+          <h2>TrainXplor Resources</h2>
+          <p>Explore a comprehensive collection of supporting materials designed to strengthen and extend your learning journey, including tutorials that break down complex processes into manageable steps, documentation that provides detailed references and quick‑access guides for daily tasks, specialized EBR training modules that reinforce compliance and efficiency in regulated environments, and interactive quizzes that test understanding, highlight areas for improvement, and reinforce key concepts—all working together to create a well‑rounded toolkit that supports both immediate skill application and long‑term professional growth.</p>
+          <ul class="resource-links" role="navigation" aria-label="Resource Links">
+            <li><a href="#" aria-disabled="true">Tutorials</a></li>
+            <li><a href="#" aria-disabled="true">Documents</a></li>
+            <li><a href="#" aria-disabled="true">EBR Training</a></li>
+            <li><a href="#" aria-disabled="true">Quizzes</a></li>
+          </ul>
+        </div>
+      `;
+    } else if (tabName === 'Login') {
+      content.innerHTML = `
+        <div class="content">
+          <h2>User Login</h2>
+          <p>Please enter your username and password below to access your personalized TrainXplor dashboard and resources.</p>
+          <form class="login-form" aria-label="Login Form">
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username" placeholder="Enter your username"><br><br>
+            
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password" placeholder="Enter your password"><br><br>
+            
+            <button type="submit">Login</button>
+          </form>
+        </div>
+      `;
+    } else if (tabName !== 'Home') {
+      content.innerHTML = `
+        <div class="content">
+          <h2>${tabName}</h2>
+          <p>This is the ${tabName} section. Content will be added here.</p>
+        </div>
+      `;
+    } else {
+        content.innerHTML = `
+          <div class="hero">
+            <div class="hero-text">
+              <h2>Welcome to TrainXplor</h2>
+              <p>
+                TrainXplor is a centralized learning hub designed to help you master the processes in your current role and explore workflows across other departments. The site combines structured learning paths with practical, on-the-job practice so you can build confidence and competence quickly.
+              </p>
+              <p>What you’ll find:</p>
+              <ul>
+                <li>Training videos that demonstrate step-by-step processes and real-world scenarios.</li>
+                <li>Interactive quizzes to check understanding and reinforce key concepts.</li>
+                <li>Supporting documents such as checklists, SOPs, and quick-reference guides for day-to-day use.</li>
+                <li>Hands-on practice modules and simulations that let you apply skills in a safe environment.</li>
+              </ul>
+              <p>
+                By combining multimedia instruction with assessment and practice, TrainXplor prepares you to perform confidently in your current role and gives you the tools to cross-train into other teams.
+              </p>
+            </div>
+            <div class="hero-image circular" aria-hidden="false">
+              <img src="assets/HPimage.webp" alt="TrainXplor preview image" loading="lazy">
+            </div>
+          </div>
+
+          <div class="video-wrapper">
+            <div class="video-card">
+              <h3>Video loop of website</h3>
+              <video id="siteVideo" controls loop preload="metadata" poster="assets/video-poster.jpg">
+                <source src="assets/loop.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+
+          <footer>
+            <a href="#" onclick="showContent(event, 'Training Catalog')">Training Catalog</a>
+            <a href="#" onclick="showContent(event, 'My Learning')">My Learning</a>
+            <a href="#" onclick="showContent(event, 'Resources')">Resources</a>
+            <a href="#" onclick="showContent(event, 'Login')">Login</a>
+          </footer>
+        `;
+      }
+
+    const menuItems = document.querySelectorAll('#menu li');
+    menuItems.forEach(item => item.classList.remove('active'));
+    if (evt && evt.currentTarget) evt.currentTarget.classList.add('active');
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const menuItems = document.querySelectorAll('#menu li');
+    menuItems.forEach(item => item.classList.remove('active'));
+    menuItems[0] && menuItems[0].classList.add('active');
+    showContent(null, 'Home'); 
+  });
+</script>
 </body>
 </html>
