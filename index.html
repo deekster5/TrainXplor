@@ -151,7 +151,7 @@
       display: block;
     }
 
-    footer {
+ footer {
       margin-top: 1.5rem;
       padding-top: 1rem;
       border-top: 1px solid #e6e9ee;
@@ -167,33 +167,37 @@
     }
 
     .dept-section {
-      margin-top: 1rem;
+      margin-top: 2rem;
     }
 
     .dept-buttons {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      align-items: center;
-      margin: 1rem 0 0.5rem 0;
-      overflow-x: auto;
-      padding-bottom: 0.25rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 2rem 0 2rem 0;
+  overflow-x: auto;
+  padding-bottom: 0.25rem;
+
     }
 
     .dept-button {
-      display: inline-block;
-      padding: 0.75rem 1.25rem;
-      background: linear-gradient(180deg,#0b06f0e1,#0a4ef0);
-      color: #fff;
-      text-decoration: none;
-      border-radius: 10px;
-      font-weight: 700;
-      box-shadow: 0 6px 14px rgba(10,78,240,0.18);
-      transition: transform 0.12s ease, box-shadow 0.12s ease, opacity 0.12s ease;
-      white-space: nowrap;
-      border: none;
-      cursor: pointer;
-    }
+  flex: 1;                          /* each button expands evenly */
+  text-align: center;               /* text stays centered */
+  padding: 1rem 0;                  /* taller, consistent height */
+  background: linear-gradient(180deg,#0b06f0e1,#0a4ef0);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  box-shadow: 0 6px 14px rgba(10,78,240,0.18);
+  transition: transform 0.12s ease, box-shadow 0.12s ease, opacity 0.12s ease;
+  border: none;
+  cursor: pointer;
+  min-width: 0;                     /* prevents overflow in flex row */
+}
 
     .dept-button:focus {
       outline: 3px solid rgba(69,155,253,0.25);
@@ -332,7 +336,8 @@
         </div>
 
         <div class="hero-image circular" aria-hidden="false">
-          <img src="HPimage.webp" alt="TrainXplor preview image" loading="lazy">
+          <img src="assets/HPimage.webp" alt="TrainXplor preview image" loading="lazy">
+
         </div>
       </div>
 
@@ -345,13 +350,6 @@
           </video>
         </div>
       </div>
-
-      <footer>
-        <a href="#" onclick="showContent(event, 'Training Catalog')">Training Catalog</a>
-        <a href="#" onclick="showContent(event, 'My Learning')">My Learning</a>
-        <a href="#" onclick="showContent(event, 'Resources')">Resources</a>
-        <a href="#" onclick="showContent(event, 'Login')">Login</a>
-      </footer>
     </div>
   </main>
 
@@ -359,83 +357,346 @@
   function showContent(evt, tabName) {
     const content = document.getElementById('pageContent');
 
-    if (tabName === 'Training Catalog') {
-      content.innerHTML = `
-        <div class="content">
-          <h2>Training Catalog</h2>
-          <p>A unified, searchable catalog organizes short courses, videos, standard operating procedures, and hands-on exercises by department—including Engineering, Manufacturing, Quality Assurance, and Digital Innovations Technology. This enables employees to efficiently locate training resources tailored to their roles, such as safety and compliance checklists and practical laboratories. Each listing provides transparent learning objectives and estimated completion times, allowing users to select brief refreshers or pursue a structured pathway for skill development and cross-training.</p>
+   if (tabName === 'Training Catalog') {
+  content.innerHTML = `
+    <div class="content">
+      <h2>Training Catalog</h2>
+      <p>A unified, searchable catalog organizes short courses, videos, standard operating procedures, and hands-on exercises by department—including Engineering, Manufacturing, Quality Assurance, and Digital Innovations Technology. This enables employees to efficiently locate training resources tailored to their roles, such as safety and compliance checklists and practical laboratories. Each listing provides transparent learning objectives and estimated completion times, allowing users to select brief refreshers or pursue a structured pathway for skill development and cross-training.</p>
 
-          <div class="dept-section" aria-label="Department navigation">
-            <div class="dept-buttons" role="navigation" aria-label="Departments">
-              <a href="#" class="dept-button" aria-disabled="true">Engineering</a>
-              <a href="#" class="dept-button" aria-disabled="true">Manufacturing</a>
-              <a href="#" class="dept-button" aria-disabled="true">Quality Assurance</a>
-              <a href="#" class="dept-button" aria-disabled="true">Digital Innovations Technology</a>
-            </div>
+      <div class="dept-section" aria-label="Department navigation">
+        <div class="dept-buttons" role="navigation" aria-label="Departments">
+          <a href="#" class="dept-button" aria-disabled="true">Engineering</a>
+          <a href="#" class="dept-button" aria-disabled="true">Manufacturing</a>
+          <a href="#" class="dept-button" aria-disabled="true">Quality Assurance</a>
+          <a href="#" class="dept-button" aria-disabled="true">DTI</a>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 3rem; margin-top: 2.5rem;">
+
+        <a href="#" onclick="showContent(event, 'Tutorials')"
+          style="display: flex; flex-direction: row; width: 85%; max-width: 900px; gap: 1.5rem; text-decoration: none; color: inherit; align-items: center;">
+
+          <div style="width: 260px; height: 260px; border-radius: 12px; overflow: hidden;
+                      box-shadow: 0 6px 18px rgba(0,0,0,0.12); background: #eee;">
+            <img src="assets/tutorials.png" alt="Tutorials Image"
+                 style="width:100%; height:100%; object-fit:cover;">
           </div>
-        </div>
-      `;
-    } else if (tabName === 'My Learning') {
-      content.innerHTML = `
-        <div class="content">
-          <h2>My Learning</h2>
-          <p>Welcome to your personalized learning dashboard. Here you will find a curated list of course links designed for quick access and exploration—tailored to your learning history, recommended resources, and the courses you are currently engaged in.</p>
 
-          <table class="course-table" role="table" aria-label="List of Course Links">
-            <thead>
-              <tr>
-                <th scope="col">List of Course Links</th>
-                <th scope="col">List of Course Links</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><a href="#" aria-disabled="true">Course A</a></td>
-                <td><a href="#" aria-disabled="true">Course B</a></td>
-              </tr>
-              <tr>
-                <td><a href="#" aria-disabled="true">Course C</a></td>
-                <td><a href="#" aria-disabled="true">Course D</a></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      `;
-    } else if (tabName === 'Resources') {
-      content.innerHTML = `
-        <div class="content">
-          <h2>TrainXplor Resources</h2>
-          <p>Explore a comprehensive collection of supporting materials designed to strengthen and extend your learning journey, including tutorials that break down complex processes into manageable steps, documentation that provides detailed references and quick‑access guides for daily tasks, specialized EBR training modules that reinforce compliance and efficiency in regulated environments, and interactive quizzes that test understanding, highlight areas for improvement, and reinforce key concepts—all working together to create a well‑rounded toolkit that supports both immediate skill application and long‑term professional growth.</p>
-          <ul class="resource-links" role="navigation" aria-label="Resource Links">
-            <li><a href="#" aria-disabled="true">Tutorials</a></li>
-            <li><a href="#" aria-disabled="true">Documents</a></li>
-            <li><a href="#" aria-disabled="true">EBR Training</a></li>
-            <li><a href="#" aria-disabled="true">Quizzes</a></li>
-          </ul>
-        </div>
-      `;
+          <div style="flex: 1;">
+            <h3 style="margin: 0 0 0.5rem 0;">Tutorials</h3>
+            <p style="margin: 0; color: #555;">
+              Explore step-by-step walkthroughs, interactive demonstrations, and structured guides
+              to support your learning across all departments.
+            </p>
+          </div>
+
+        </a>
+
+        <a href="#" onclick="showContent(event, 'Resources')"
+          style="display: flex; flex-direction: row-reverse; width: 85%; max-width: 900px; gap: 1.5rem; text-decoration: none; color: inherit; align-items: center;">
+
+          <div style="width: 260px; height: 260px; border-radius: 12px; overflow: hidden;
+                      box-shadow: 0 6px 18px rgba(0,0,0,0.12); background: #eee;">
+            <img src="assets/resources.png" alt="Resources Image"
+                 style="width:100%; height:100%; object-fit:cover;">
+          </div>
+
+          <div style="flex: 1;">
+            <h3 style="margin: 0 0 0.5rem 0;">Resources</h3>
+            <p style="margin: 0; color: #555;">
+              Access supporting documents, SOPs, quick-reference guides, quizzes, and other
+              learning materials designed to enhance job performance and exploration.
+            </p>
+          </div>
+
+        </a>
+
+      </div> <!-- END WRAPPER -->
+
+    </div>
+    <footer>
+            <a href="#" onclick="showContent(event, 'Home')">Home</a>
+            <a href="#" onclick="showContent(event, 'Training Catalog')">Training Catalog</a>
+            <a href="#" onclick="showContent(event, 'My Learning')">My Learning</a>
+            <a href="#" onclick="showContent(event, 'Resources')">Resources</a>
+            <a href="#" onclick="showContent(event, 'Login')">Login</a>
+          </footer>
+  `;
+
+    } else if (tabName === 'My Learning') {
+  content.innerHTML = `
+    <div class="content">
+
+      <h2>My Learning</h2>
+      <p>
+        Welcome to your personalized learning dashboard. Here you will find a curated list of course links 
+        designed for quick access and exploration—tailored to your learning history, recommended resources, 
+        and the courses you are currently engaged in.
+      </p>
+
+<div style="
+  width: 100%;
+  background: #f0f0f0;
+  padding: 1rem 1.2rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem; /* reduced spacing */
+  box-sizing: border-box;
+">
+
+  <a href="#" onclick="showContent(event, 'Login')"
+     style="
+       padding: 0.6rem 1.2rem;
+       background: linear-gradient(180deg,#0b06f0e1,#0a4ef0);
+       color: #fff;
+       border-radius: 8px;
+       text-decoration: none;
+       font-weight: 600;
+       box-shadow: 0 6px 14px rgba(10,78,240,0.18);
+       white-space: nowrap;
+       display: inline-block;
+     ">
+    Login
+  </a>
+
+  <p style="
+    margin: 0;
+    color: #333;
+    font-size: 0.95rem;
+    max-width: 80%;
+    text-align: left;
+  ">
+    Login to your profile to see your latest progress, new assigned courses, and continue your learning journey.
+  </p>
+
+</div>
+
+      <table class="course-table" role="table" aria-label="List of Course Links" style="margin-top: 1.5rem;">
+        <thead>
+          <tr>
+            <th scope="col">List of Course Links</th>
+            <th scope="col">List of Course Links</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="#" aria-disabled="true">Course A</a></td>
+            <td><a href="#" aria-disabled="true">Course B</a></td>
+          </tr>
+          <tr>
+            <td><a href="#" aria-disabled="true">Course C</a></td>
+            <td><a href="#" aria-disabled="true">Course D</a></td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+    <footer>
+      <a href="#" onclick="showContent(event, 'Home')">Home</a>
+      <a href="#" onclick="showContent(event, 'Training Catalog')">Training Catalog</a>
+      <a href="#" onclick="showContent(event, 'My Learning')">My Learning</a>
+      <a href="#" onclick="showContent(event, 'Resources')">Resources</a>
+      <a href="#" onclick="showContent(event, 'Login')">Login</a>
+    </footer>
+  `;
+
+   } else if (tabName === 'Resources') {
+  content.innerHTML = `
+    <div class="content">
+      <h2>TrainXplor Resources</h2>
+      <p>
+        Explore a comprehensive collection of supporting materials designed to strengthen your learning journey. 
+        From tutorials and documentation to EBR training and quizzes, each resource provides structured support for 
+        both daily tasks and long-term professional growth.
+      </p>
+
+      <style>
+        .resource-row {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: 100%;
+          padding: 1rem 1.25rem; /* smaller padding */
+          margin: 1.25rem 0;
+          background: #f7f9fc;
+          border-radius: 10px;
+          box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+          gap: 1rem; /* reduced spacing */
+          box-sizing: border-box;
+        }
+        .resource-button {
+          padding: 0.85rem 1.4rem; /* slightly smaller button */
+          background: linear-gradient(180deg,#0b06f0e1,#0a4ef0);
+          color: #fff;
+          border-radius: 10px;
+          font-weight: 700;
+          font-size: 1rem; /* smaller text */
+          text-decoration: none;
+          white-space: nowrap;
+          box-shadow: 0 6px 14px rgba(10,78,240,0.18);
+        }
+        .resource-description {
+          flex: 1;
+          font-size: 0.95rem; /* slightly smaller */
+          color: #333;
+          line-height: 1.4;
+        }
+        .resource-row.right {
+          flex-direction: row-reverse;
+        }
+      </style>
+
+      <div class="resource-row">
+        <a href="#" class="resource-button" aria-disabled="true">Tutorials</a>
+        <p class="resource-description">
+          Step-by-step walkthroughs and guided instruction to build mastery across roles and departments.
+        </p>
+      </div>
+
+      <div class="resource-row right">
+        <a href="#" class="resource-button" aria-disabled="true">Documents</a>
+        <p class="resource-description" style="text-align: right;">
+          SOPs, checklists, reference guides, and detailed process documentation for daily operations.
+        </p>
+      </div>
+
+      <div class="resource-row">
+        <a href="#" class="resource-button" aria-disabled="true">EBR Training</a>
+        <p class="resource-description">
+          Electronic Batch Record training modules to support compliance and ensure accurate execution.
+        </p>
+      </div>
+
+      <div class="resource-row right">
+        <a href="#" class="resource-button" aria-disabled="true">Quizzes</a>
+        <p class="resource-description" style="text-align: right;">
+          Assess your knowledge with quick, interactive quizzes that reinforce essential concepts.
+        </p>
+      </div>
+
+    </div>
+
+    <footer>
+      <a href="#" onclick="showContent(event, 'Home')">Home</a>
+      <a href="#" onclick="showContent(event, 'Training Catalog')">Training Catalog</a>
+      <a href="#" onclick="showContent(event, 'My Learning')">My Learning</a>
+      <a href="#" onclick="showContent(event, 'Resources')">Resources</a>
+      <a href="#" onclick="showContent(event, 'Login')">Login</a>
+    </footer>
+  `;
+
     } else if (tabName === 'Login') {
-      content.innerHTML = `
-        <div class="content">
-          <h2>User Login</h2>
-          <p>Please enter your username and password below to access your personalized TrainXplor dashboard and resources.</p>
-          <form class="login-form" aria-label="Login Form">
-            <label for="username">Username:</label><br>
-            <input type="text" id="username" name="username" placeholder="Enter your username"><br><br>
-            
-            <label for="password">Password:</label><br>
-            <input type="password" id="password" name="password" placeholder="Enter your password"><br><br>
-            
-            <button type="submit">Login</button>
-          </form>
-        </div>
-      `;
+  content.innerHTML = `
+    <div class="content" style="display: flex; flex-direction: column; align-items: center;">
+
+      <div style="
+        width: 100%;
+        max-width: 420px;
+        padding: 2rem;
+        border: 1px solid #d0d7e2;
+        border-radius: 10px;
+        background: #ffffff;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+        text-align: left;
+      ">
+
+        <h2 style="text-align: center;">User Login</h2>
+        <p style="color: #555; text-align: center; margin-bottom: 1.5rem;">
+          Please enter your login credentials below.
+        </p>
+
+        <form class="login-form" aria-label="Login Form">
+
+          <label for="username" style="font-weight: 600; display: block; text-align: left;">
+            Username:
+          </label>
+          <input type="text" id="username" name="username"
+            placeholder="Enter your username"
+            style="width: 100%; padding: 0.6rem; margin: 0.5rem 0 1rem 0;
+                   border-radius: 6px; border: 1px solid #ccc;">
+
+          <label for="password" style="font-weight: 600; display: block; text-align: left;">
+            Password:
+          </label>
+          <input type="password" id="password" name="password"
+            placeholder="Enter your password"
+            style="width: 100%; padding: 0.6rem; margin: 0.5rem 0 1.2rem 0;
+                   border-radius: 6px; border: 1px solid #ccc;">
+
+          <button type="submit" 
+            style="
+              width: 100%;
+              padding: 0.75rem;
+              background-color: #0a4ef0;
+              color: white;
+              border: none;
+              border-radius: 8px;
+              font-size: 1rem;
+              cursor: pointer;
+              font-weight: 600;
+            ">
+            Login
+          </button>
+        </form>
+
+      </div>
+
+      <div style="
+        margin-top: 1.2rem;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 0.35rem;
+        font-size: 1.2rem;
+      ">
+
+      <a href="#" onclick="showContent(event, 'Create Account')" 
+           style="color: #0a4ef0; text-decoration: none; font-weight: 600;">
+          Create Account
+        </a>
+
+        <a href="#"
+          onclick="
+            const email = prompt('Please enter your email to recover your username:');
+            if(email) { alert('An email has been sent to ' + email + ' with your username.'); }
+            return false;
+          "
+          style="color: #0a4ef0; text-decoration: none;">
+          Forgot Username
+        </a>
+
+        <a href="#"
+          onclick="
+            const username = prompt('Please enter your username to recover your password:');
+            if(username) { alert('Password recovery instructions have been sent for username: ' + username); }
+            return false;
+          "
+          style="color: #0a4ef0; text-decoration: none;">
+          Forgot Password
+        </a>
+      </div>
+    </div>
+
+    <footer>
+      <a href="#" onclick="showContent(event, 'Home')">Home</a>
+      <a href="#" onclick="showContent(event, 'Training Catalog')">Training Catalog</a>
+      <a href="#" onclick="showContent(event, 'My Learning')">My Learning</a>
+      <a href="#" onclick="showContent(event, 'Resources')">Resources</a>
+      <a href="#" onclick="showContent(event, 'Login')">Login</a>
+    </footer>
+  `;
+
     } else if (tabName !== 'Home') {
       content.innerHTML = `
         <div class="content">
           <h2>${tabName}</h2>
           <p>This is the ${tabName} section. Content will be added here.</p>
         </div>
+        
       `;
     } else {
         content.innerHTML = `
@@ -445,7 +706,7 @@
               <p>
                 TrainXplor is a centralized learning hub designed to help you master the processes in your current role and explore workflows across other departments. The site combines structured learning paths with practical, on-the-job practice so you can build confidence and competence quickly.
               </p>
-              <p>What you’ll find:</p>
+              <p>What you will find:</p>
               <ul>
                 <li>Training videos that demonstrate step-by-step processes and real-world scenarios.</li>
                 <li>Interactive quizzes to check understanding and reinforce key concepts.</li>
@@ -472,6 +733,7 @@
           </div>
 
           <footer>
+            <a href="#" onclick="showContent(event, 'Home')">Home</a>
             <a href="#" onclick="showContent(event, 'Training Catalog')">Training Catalog</a>
             <a href="#" onclick="showContent(event, 'My Learning')">My Learning</a>
             <a href="#" onclick="showContent(event, 'Resources')">Resources</a>
